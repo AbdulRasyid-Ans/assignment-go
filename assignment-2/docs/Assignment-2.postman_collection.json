@@ -1,0 +1,610 @@
+{
+	"info": {
+		"_postman_id": "82852e26-8717-424d-bba1-947f465d636a",
+		"name": "Assignment 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21789347"
+	},
+	"item": [
+		{
+			"name": "Get Order List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/order",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"order"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/order",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"order"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Jul 2022 07:22:53 GMT"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"ID\": 1,\n            \"createdAt\": \"2022-07-18T00:41:13.957938+07:00\",\n            \"updatedAt\": \"2022-07-18T00:41:13.957938+07:00\",\n            \"customerName\": \"Tom Jerry\",\n            \"orderedAt\": \"2019-11-10T04:21:46+07:00\",\n            \"items\": []\n        },\n        {\n            \"ID\": 2,\n            \"createdAt\": \"2022-07-18T00:42:50.618216+07:00\",\n            \"updatedAt\": \"2022-07-18T00:42:50.618216+07:00\",\n            \"customerName\": \"Tom Cruzz\",\n            \"orderedAt\": \"2019-11-10T04:21:46+07:00\",\n            \"items\": []\n        },\n        {\n            \"ID\": 3,\n            \"createdAt\": \"2022-07-18T00:46:15.589769+07:00\",\n            \"updatedAt\": \"2022-07-18T00:46:15.589769+07:00\",\n            \"customerName\": \"Tom Sick\",\n            \"orderedAt\": \"2019-11-10T04:21:46+07:00\",\n            \"items\": [\n                {\n                    \"lineItemId\": 3,\n                    \"createdAt\": \"2022-07-18T00:46:15.594267+07:00\",\n                    \"updatedAt\": \"2022-07-18T00:46:15.594267+07:00\",\n                    \"itemCode\": \"1234\",\n                    \"description\": \"iPhone 10X1\",\n                    \"quantity\": 10\n                },\n                {\n                    \"lineItemId\": 4,\n                    \"createdAt\": \"2022-07-18T00:46:15.595149+07:00\",\n                    \"updatedAt\": \"2022-07-18T00:46:15.595149+07:00\",\n                    \"itemCode\": \"1235\",\n                    \"description\": \"iPhone 10X3\",\n                    \"quantity\": 14\n                }\n            ]\n        },\n        {\n            \"ID\": 4,\n            \"createdAt\": \"2022-07-18T00:48:19.307849+07:00\",\n            \"updatedAt\": \"2022-07-19T14:06:02.207294+07:00\",\n            \"customerName\": \"Tom Update\",\n            \"orderedAt\": \"2019-11-10T04:21:46+07:00\",\n            \"items\": [\n                {\n                    \"lineItemId\": 5,\n                    \"createdAt\": \"2022-07-18T00:48:19.311929+07:00\",\n                    \"updatedAt\": \"2022-07-18T00:48:19.311929+07:00\",\n                    \"itemCode\": \"12324\",\n                    \"description\": \"iPhone 102X1\",\n                    \"quantity\": 10\n                },\n                {\n                    \"lineItemId\": 6,\n                    \"createdAt\": \"2022-07-18T00:48:19.313077+07:00\",\n                    \"updatedAt\": \"2022-07-18T00:48:19.313077+07:00\",\n                    \"itemCode\": \"12235\",\n                    \"description\": \"iPhone 10X23\",\n                    \"quantity\": 14\n                },\n                {\n                    \"lineItemId\": 1,\n                    \"createdAt\": \"2022-07-18T00:41:13.960241+07:00\",\n                    \"updatedAt\": \"2022-07-19T14:06:02.212525+07:00\",\n                    \"itemCode\": \"1223242\",\n                    \"description\": \"iPhone 1022X1\",\n                    \"quantity\": 10\n                }\n            ]\n        },\n        {\n            \"ID\": 6,\n            \"createdAt\": \"2022-07-19T14:10:57.660392+07:00\",\n            \"updatedAt\": \"2022-07-19T14:10:57.660392+07:00\",\n            \"customerName\": \"Tom Sick\",\n            \"orderedAt\": \"2019-11-10T04:21:46+07:00\",\n            \"items\": [\n                {\n                    \"lineItemId\": 9,\n                    \"createdAt\": \"2022-07-19T14:10:57.664401+07:00\",\n                    \"updatedAt\": \"2022-07-19T14:10:57.664401+07:00\",\n                    \"itemCode\": \"122324\",\n                    \"description\": \"iPhone 1022X1\",\n                    \"quantity\": 10\n                },\n                {\n                    \"lineItemId\": 10,\n                    \"createdAt\": \"2022-07-19T14:10:57.66557+07:00\",\n                    \"updatedAt\": \"2022-07-19T14:10:57.66557+07:00\",\n                    \"itemCode\": \"122235\",\n                    \"description\": \"iPhone 10X23\",\n                    \"quantity\": 14\n                }\n            ]\n        }\n    ],\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"orderedAt\": \"2019-11-09T21:21:46+00:00\",\n    \"customerName\": \"Tom Sick\",\n    \"items\": [\n        {\n            \"itemCode\": \"122324\",\n            \"description\": \"iPhone 1022X1\",\n            \"quantity\": 10\n        },\n        {\n            \"itemCode\": \"122235\",\n            \"description\": \"iPhone 10X23\",\n            \"quantity\": 14\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/order",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"order"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "201",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"orderedAt\": \"2019-11-09T21:21:46+00:00\",\n    \"customerName\": \"Tom Sick\",\n    \"items\": [\n        {\n            \"itemCode\": \"122324\",\n            \"description\": \"iPhone 1022X1\",\n            \"quantity\": 10\n        },\n        {\n            \"itemCode\": \"122235\",\n            \"description\": \"iPhone 10X23\",\n            \"quantity\": 14\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/order",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"order"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Jul 2022 07:10:57 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "258"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"orderedAt\": \"2019-11-09T21:21:46Z\",\n        \"customerName\": \"Tom Sick\",\n        \"items\": [\n            {\n                \"lineItemId\": 9,\n                \"itemCode\": \"122324\",\n                \"description\": \"iPhone 1022X1\",\n                \"quantity\": 10\n            },\n            {\n                \"lineItemId\": 10,\n                \"itemCode\": \"122235\",\n                \"description\": \"iPhone 10X23\",\n                \"quantity\": 14\n            }\n        ]\n    },\n    \"success\": true\n}"
+				},
+				{
+					"name": "400",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"orderedAt\": \"test\",\n    \"customerName\": \"Tom Sick\",\n    \"items\": [\n        {\n            \"itemCode\": \"122324\",\n            \"description\": \"iPhone 1022X1\",\n            \"quantity\": 10\n        },\n        {\n            \"itemCode\": \"122235\",\n            \"description\": \"iPhone 10X23\",\n            \"quantity\": 14\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/order",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"order"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Jul 2022 07:11:23 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "137"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"parsing time \\\"\\\\\\\"test\\\\\\\"\\\" as \\\"\\\\\\\"2006-01-02T15:04:05Z07:00\\\\\\\"\\\": cannot parse \\\"test\\\\\\\"\\\" as \\\"2006\\\"\",\n    \"success\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Order",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/order/:orderID",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"order",
+						":orderID"
+					],
+					"variable": [
+						{
+							"key": "orderID",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "404",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/order/:orderID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"order",
+								":orderID"
+							],
+							"variable": [
+								{
+									"key": "orderID",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Jul 2022 07:08:47 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "48"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Order data not found\",\n    \"success\": false\n}"
+				},
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/order/:orderID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"order",
+								":orderID"
+							],
+							"variable": [
+								{
+									"key": "orderID",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Jul 2022 07:09:38 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "56"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Order ID 5 has been deleted\",\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Get One Order",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/order/:orderID",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"order",
+						":orderID"
+					],
+					"variable": [
+						{
+							"key": "orderID",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "404",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/order/:orderID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"order",
+								":orderID"
+							],
+							"variable": [
+								{
+									"key": "orderID",
+									"value": "40"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Jul 2022 07:08:19 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "48"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Order data not found\",\n    \"success\": false\n}"
+				},
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/order/:orderID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"order",
+								":orderID"
+							],
+							"variable": [
+								{
+									"key": "orderID",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Jul 2022 07:23:24 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "726"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"ID\": 4,\n        \"createdAt\": \"2022-07-18T00:48:19.307849+07:00\",\n        \"updatedAt\": \"2022-07-19T14:06:02.207294+07:00\",\n        \"customerName\": \"Tom Update\",\n        \"orderedAt\": \"2019-11-10T04:21:46+07:00\",\n        \"items\": [\n            {\n                \"lineItemId\": 5,\n                \"createdAt\": \"2022-07-18T00:48:19.311929+07:00\",\n                \"updatedAt\": \"2022-07-18T00:48:19.311929+07:00\",\n                \"itemCode\": \"12324\",\n                \"description\": \"iPhone 102X1\",\n                \"quantity\": 10\n            },\n            {\n                \"lineItemId\": 6,\n                \"createdAt\": \"2022-07-18T00:48:19.313077+07:00\",\n                \"updatedAt\": \"2022-07-18T00:48:19.313077+07:00\",\n                \"itemCode\": \"12235\",\n                \"description\": \"iPhone 10X23\",\n                \"quantity\": 14\n            },\n            {\n                \"lineItemId\": 1,\n                \"createdAt\": \"2022-07-18T00:41:13.960241+07:00\",\n                \"updatedAt\": \"2022-07-19T14:06:02.212525+07:00\",\n                \"itemCode\": \"1223242\",\n                \"description\": \"iPhone 1022X1\",\n                \"quantity\": 10\n            }\n        ]\n    },\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Order",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"orderedAt\": \"2019-11-09T21:21:46+00:00\",\n    \"customerName\": \"Tom Sick\",\n    \"items\": [\n        {\n            \"lineItemId\": 1,\n            \"itemCode\": \"122324\",\n            \"description\": \"iPhone 1022X1\",\n            \"quantity\": 10\n        },\n        {\n            \"lineItemId\": 2,\n            \"itemCode\": \"122235\",\n            \"description\": \"iPhone 10X23\",\n            \"quantity\": 14\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/order/:orderID",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"order",
+						":orderID"
+					],
+					"variable": [
+						{
+							"key": "orderID",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"orderedAt\": \"2019-11-09T21:21:46+00:00\",\n    \"customerName\": \"Tom Update\",\n    \"items\": [\n        {\n            \"lineItemId\": 1,\n            \"itemCode\": \"1223242\",\n            \"description\": \"iPhone 1022X1\",\n            \"quantity\": 10\n        },\n        {\n            \"lineItemId\": 100,\n            \"itemCode\": \"1222352\",\n            \"description\": \"iPhone 10X23\",\n            \"quantity\": 14\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/order/:orderID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"order",
+								":orderID"
+							],
+							"variable": [
+								{
+									"key": "orderID",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Jul 2022 07:06:02 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "109"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": [\n        \"Order ID 4: updated\",\n        \"Item ID 1: updated\",\n        \"Item ID 100: Error: record not found\"\n    ],\n    \"success\": true\n}"
+				},
+				{
+					"name": "404",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"orderedAt\": \"2019-11-09T21:21:46+00:00\",\n    \"customerName\": \"Tom Update\",\n    \"items\": [\n        {\n            \"lineItemId\": 1,\n            \"itemCode\": \"1223242\",\n            \"description\": \"iPhone 1022X1\",\n            \"quantity\": 10\n        },\n        {\n            \"lineItemId\": 100,\n            \"itemCode\": \"1222352\",\n            \"description\": \"iPhone 10X23\",\n            \"quantity\": 14\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/order/:orderID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"order",
+								":orderID"
+							],
+							"variable": [
+								{
+									"key": "orderID",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Jul 2022 07:06:31 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "48"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Order data not found\",\n    \"success\": false\n}"
+				},
+				{
+					"name": "400",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"orderedAt\": \"test\",\n    \"customerName\": \"Tom Update\",\n    \"items\": [\n        {\n            \"lineItemId\": 1,\n            \"itemCode\": \"1223242\",\n            \"description\": \"iPhone 1022X1\",\n            \"quantity\": 10\n        },\n        {\n            \"lineItemId\": 100,\n            \"itemCode\": \"1222352\",\n            \"description\": \"iPhone 10X23\",\n            \"quantity\": 14\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/order/:orderID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"order",
+								":orderID"
+							],
+							"variable": [
+								{
+									"key": "orderID",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Jul 2022 07:07:06 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "137"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"parsing time \\\"\\\\\\\"test\\\\\\\"\\\" as \\\"\\\\\\\"2006-01-02T15:04:05Z07:00\\\\\\\"\\\": cannot parse \\\"test\\\\\\\"\\\" as \\\"2006\\\"\",\n    \"success\": false\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:4000",
+			"type": "string"
+		}
+	]
+}
