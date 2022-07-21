@@ -41,8 +41,8 @@ func ReadAndUpdateWeather(ctx *gin.Context) {
 		return
 	}
 
-	weather.Status.Water = rand.Intn(100)
-	weather.Status.Wind = rand.Intn(100)
+	weather.Status.Water = generateStatus(rand.Intn(100), "water")
+	weather.Status.Wind = generateStatus(rand.Intn(100), "wind")
 
 	newWeatherByte, err := json.MarshalIndent(&weather, "", "    ")
 	if err != nil {
@@ -57,4 +57,28 @@ func ReadAndUpdateWeather(ctx *gin.Context) {
 		"title":          "Status Air dan Angin",
 		"updateInterval": 15,
 	})
+}
+
+func generateStatus(percentage int, statusType string) (res int) {
+	const maxBahaya = 100
+	var aman, minSiaga, maxSiaga, minBahaya int
+	if statusType == "water" {
+		minSiaga = 6
+		maxSiaga = 8
+		aman = minSiaga - 1
+		minBahaya = maxSiaga + 1
+	} else {
+		minSiaga = 7
+		maxSiaga = 15
+		aman = minSiaga - 1
+		minBahaya = maxSiaga + 1
+	}
+	if percentage < 50 {
+		res = rand.Intn(aman)
+	} else if percentage >= 50 && percentage < 80 {
+		res = rand.Intn(maxSiaga-minSiaga) + minSiaga
+	} else {
+		res = rand.Intn(maxBahaya-minBahaya) + minBahaya
+	}
+	return
 }
