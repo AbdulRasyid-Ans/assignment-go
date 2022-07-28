@@ -1,0 +1,489 @@
+swagger: "2.0"
+info:
+  description: "Aplikasi ini digunakan untuk menyimpan foro maupun membuat comment untuk foto orang lain."
+  version: "1.0.0"
+  title: "MyGram"
+  contact:
+    email: "abdul.rasyid.anshori@gmail.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost"
+basePath: "/v1"
+tags:
+- name: "user"
+  description: "Operations about users"
+- name: "photo"
+  description: "Operations about photos"
+schemes:
+- "https"
+- "http"
+paths:
+  /users/register:
+    post:
+      tags:
+      - "user"
+      summary: "Register User"
+      description: "Endpoint ini digunakan untuk registrasi user baru."
+      operationId: "registerUser"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Register user object"
+        required: true
+        schema:
+          $ref: "#/definitions/UserRegister"
+      responses:
+        "201":
+          description: "user registered"
+          schema:
+            $ref: "#/definitions/UserRegisterResponse"
+  /users/login:
+    post:
+      tags:
+      - "user"
+      summary: "Login User"
+      description: "Endpoint ini digunakan untuk login user."
+      operationId: "loginUser"
+      produces:
+      - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          schema:
+            $ref: "#/definitions/UserLogin"
+          required: true
+      responses:
+        "200":
+          description: "OK"
+          schema: 
+            $ref: "#/definitions/TokenResponse"
+  /users:
+    put:
+      tags:
+      - "user"
+      summary: "Update User"
+      description: "Endpoint ini digunakan untuk update data user."
+      operationId: "updateUser"
+      produces:
+      - "application/json"
+      parameters:
+        - in: "header"
+          name: "Authorization Bearer"
+          type: "string"
+          description: "Masukan Bearer Token yang diterima pada saat login"
+          required: true
+        - in: "body"
+          name: "body"
+          schema:
+            $ref: "#/definitions/UserUpdate"
+          required: true
+      responses:
+        "200":
+          description: "OK"
+          schema: 
+            $ref: "#/definitions/UserUpdateResponse"
+      security:
+      - Bearer: []
+    delete:
+      tags:
+      - "user"
+      summary: "Delete User"
+      description: "Endpoint ini digunakan untuk delete user."
+      operationId: "deleteUser"
+      produces:
+      - "application/json"
+      parameters:
+        - in: "header"
+          name: "Authorization Bearer"
+          type: "string"
+          description: "Masukan Bearer Token yang diterima pada saat login"
+          required: true
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            type: "object"
+            properties:
+              message:
+                type: "string"
+                example: "Your account has been successfully deleted"
+      security:
+      - Bearer: []
+  /photos:
+    post:
+      tags:
+      - "photo"
+      summary: "Create Photo"
+      description: "Endpoint ini digunakan untuk upload photo."
+      operationId: "createPhoto"
+      produces:
+      - "application/json"
+      parameters:
+        - in: "header"
+          name: "Authorization Bearer"
+          type: "string"
+          description: "Masukan Bearer Token yang diterima pada saat login"
+          required: true
+        - in: "body"
+          name: "body"
+          schema:
+            $ref: "#/definitions/PhotoCreateAndUpdate"
+          required: true
+      responses:
+        "200":
+          description: "OK"
+          schema: 
+            $ref: "#/definitions/PhotoCreateResponse"
+      security:
+      - Bearer: []
+    get:
+      tags:
+      - "photo"
+      summary: "Get Photo List"
+      description: "Endpoint ini digunakan untuk mendapatkan list photo."
+      operationId: "listPhoto"
+      produces:
+      - "application/json"
+      parameters:
+        - in: "header"
+          name: "Authorization Bearer"
+          type: "string"
+          description: "Masukan Bearer Token yang diterima pada saat login"
+          required: true
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            $ref: "#/definitions/PhotoListResponse"
+      security:
+      - Bearer: []
+  /photos/{photoId}:
+    put:
+      tags:
+      - "photo"
+      summary: "Update Photo"
+      description: "Endpoint ini digunakan untuk update photo."
+      operationId: "updatePhoto"
+      produces:
+      - "application/json"
+      parameters:
+        - in: "header"
+          name: "Authorization Bearer"
+          type: "string"
+          description: "Masukan Bearer Token yang diterima pada saat login"
+          required: true
+        - in: "path"
+          name: "photoId"
+          description: "ID photo yang akan di update"
+          required: true
+          type: "integer"
+          format: "int64"
+        - in: "body"
+          name: "body"
+          schema:
+            $ref: "#/definitions/PhotoCreateAndUpdate"
+      responses:
+        "200":
+          description: "OK"
+          schema: 
+            $ref: "#/definitions/PhotoUpdateResponse"
+      security:
+      - Bearer: []
+    delete:
+      tags:
+      - "photo"
+      summary: "Delete Photo"
+      description: "Endpoint ini digunakan untuk menghapus photo."
+      operationId: "deletePhoto"
+      produces:
+      - "application/json"
+      parameters:
+        - in: "header"
+          name: "Authorization Bearer"
+          type: "string"
+          description: "Masukan Bearer Token yang diterima pada saat login"
+          required: true
+        - in: "path"
+          name: "photoId"
+          description: "ID photo yang akan di delete"
+          required: true
+          type: "integer"
+          format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            type: "object"
+            properties:
+              message:
+                type: "string"
+                example: "Your photo has been successfully deleted"
+      security:
+      - Bearer: []
+  /comments:
+    post:
+      tags:
+      - "comment"
+      summary: "Create Comment"
+      description: "Endpoint ini digunakan untuk membuat komentar pada sebuah foto."
+      operationId: "createComment"
+      produces:
+      - "application/json"
+      parameters:
+        - in: "header"
+          name: "Authorization Bearer"
+          type: "string"
+          description: "Masukan Bearer Token yang diterima pada saat login"
+          required: true
+        - in: "body"
+          name: "body"
+          schema:
+            $ref: "#/definitions/PhotoCreateAndUpdate"
+          required: true
+      responses:
+        "201":
+          description: "Created"
+          schema: 
+            $ref: "#/definitions/PhotoCreateResponse"
+      security:
+      - Bearer: []
+    get:
+      tags:
+      - "comment"
+      summary: "Get Photo List"
+      description: "Endpoint ini digunakan untuk mendapatkan list photo."
+      operationId: "listPhoto"
+      produces:
+      - "application/json"
+      parameters:
+        - in: "header"
+          name: "Authorization Bearer"
+          type: "string"
+          description: "Masukan Bearer Token yang diterima pada saat login"
+          required: true
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            $ref: "#/definitions/PhotoListResponse"
+      security:
+      - Bearer: []
+  /comments/{photoId}:
+    put:
+      tags:
+      - "comment"
+      summary: "Update Photo"
+      description: "Endpoint ini digunakan untuk update photo."
+      operationId: "updatePhoto"
+      produces:
+      - "application/json"
+      parameters:
+        - in: "header"
+          name: "Authorization Bearer"
+          type: "string"
+          description: "Masukan Bearer Token yang diterima pada saat login"
+          required: true
+        - in: "path"
+          name: "photoId"
+          description: "ID photo yang akan di update"
+          required: true
+          type: "integer"
+          format: "int64"
+        - in: "body"
+          name: "body"
+          schema:
+            $ref: "#/definitions/PhotoCreateAndUpdate"
+      responses:
+        "200":
+          description: "OK"
+          schema: 
+            $ref: "#/definitions/PhotoUpdateResponse"
+      security:
+      - Bearer: []
+    delete:
+      tags:
+      - "comment"
+      summary: "Delete Photo"
+      description: "Endpoint ini digunakan untuk menghapus photo."
+      operationId: "deletePhoto"
+      produces:
+      - "application/json"
+      parameters:
+        - in: "header"
+          name: "Authorization Bearer"
+          type: "string"
+          description: "Masukan Bearer Token yang diterima pada saat login"
+          required: true
+        - in: "path"
+          name: "photoId"
+          description: "ID photo yang akan di delete"
+          required: true
+          type: "integer"
+          format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            type: "object"
+            properties:
+              message:
+                type: "string"
+                example: "Your photo has been successfully deleted"
+      security:
+      - Bearer: []
+
+securityDefinitions:
+  Bearer:
+    type: "apiKey"
+    name: "Authorization"
+    in: "header"
+
+definitions:
+  User:
+    type: "object"
+    properties: 
+      id: 
+        type: "integer"
+        format: "int64"
+      username:
+        type: "string"
+      email:
+        type: "string"
+      password:
+        type: "string"
+      age:
+        type: "integer"
+      created_at:
+        type: "string"
+        example: "Date"
+      updated_at:
+        type: "string"
+        example: "Date"
+  Photo:
+    type: "object"
+    properties: 
+      id: 
+        type: "integer"
+        format: "int64"
+      title:
+        type: "string"
+      caption:
+        type: "string"
+      photo_url:
+        type: "string"
+      user_id:
+        type: "integer"
+        format: "int64"
+      created_at:
+        type: "string"
+        example: "Date"
+      updated_at:
+        type: "string"
+        example: "Date"
+
+  UserLogin:
+    type: "object"
+    properties:
+      email:
+        type: "string"
+      password:
+        type: "string"
+        description: "Pengecekan Password dilakukan dengan package Bcrypt"
+  TokenResponse:
+    type: "object"
+    properties:
+      token:
+        type: "string"
+        example: "jwt string"
+  UserRegister:
+    type: "object"
+    properties:
+      age:
+        type: "integer"
+      email:
+        type: "string"
+      password:
+        type: "string"
+        description: "Password harus di hash dengan package Bcrypt"
+      username:
+        type: "string"
+  UserRegisterResponse:
+    type: "object"
+    properties:
+      age:
+        type: "integer"
+      email:
+        type: "string"
+      id:
+        type: "integer"
+      username:
+        type: "string"
+  UserUpdate:
+    type: "object"
+    properties:
+      email:
+        type: "string"
+      username:
+        type: "string"
+  UserUpdateResponse:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+      email:
+        type: "string"
+      username:
+        type: "string"
+      age:
+        type: "integer"
+      updated_at:
+        type: "string"
+        example: "date"
+  PhotoListResponse:
+    type: "array"
+    items: 
+      $ref: "#/definitions/Photo"
+      properties: 
+        user:
+          type: "object"
+          $ref: "#/definitions/UserUpdate"
+  PhotoCreateAndUpdate:
+    type: "object"
+    properties:
+      title:
+        type: "string"
+      caption:
+        type: "string"
+      photo_url:
+        type: "string"
+  PhotoCreateResponse:
+    allOf:
+    - type: object
+      properties:
+        id:
+          type: "integer"
+    - $ref: "#/definitions/PhotoCreateAndUpdate"
+    - type: object
+      properties:
+        user_id:
+          type: "integer"
+        created_at:
+          type: "string"
+          example: "Date"
+  PhotoUpdateResponse:
+    allOf:
+    - type: object
+      properties:
+        id:
+          type: "integer"
+    - $ref: "#/definitions/PhotoCreateAndUpdate"
+    - type: object
+      properties:
+        user_id:
+          type: "integer"
+        updated_at:
+          type: "string"
+          example: "Date"
