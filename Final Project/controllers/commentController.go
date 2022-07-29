@@ -74,6 +74,10 @@ func (c *CommentController) GetList(ctx *gin.Context) {
 		})
 	}
 
+	if len(response) == 0 {
+		response = make([]params.ResponseGetComment, 0)
+	}
+
 	writeJsonResponse(ctx, http.StatusOK, response)
 }
 

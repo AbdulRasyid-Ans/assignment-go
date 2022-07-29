@@ -2,7 +2,7 @@ package models
 
 type SocialMedia struct {
 	Model
-	Name           string `gorm:"not null"`
+	Name           string `gorm:"type:varchar(255);not null"`
 	SocialMediaUrl string `gorm:"not null"`
 	UserID         uint
 

@@ -60,6 +60,9 @@ func (s *SocialMediaController) GetList(ctx *gin.Context) {
 		}
 		response.SocialMedias = append(response.SocialMedias, resSocialMedia)
 	}
+	if len(response.SocialMedias) == 0 {
+		response.SocialMedias = make([]params.SocialMedia, 0)
+	}
 	writeJsonResponse(ctx, http.StatusOK, response)
 }
 

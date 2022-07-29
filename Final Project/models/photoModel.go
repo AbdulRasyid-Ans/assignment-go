@@ -2,7 +2,7 @@ package models
 
 type Photo struct {
 	Model
-	Title    string `gorm:"not null"`
+	Title    string `gorm:"type:varchar(255);not null"`
 	Caption  string
 	PhotoUrl string `gorm:"not null"`
 	UserID   uint

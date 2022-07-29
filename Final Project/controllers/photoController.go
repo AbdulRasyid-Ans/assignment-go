@@ -61,6 +61,9 @@ func (p *PhotoController) GetList(ctx *gin.Context) {
 			User:      userPhoto,
 		})
 	}
+	if len(response) == 0 {
+		response = make([]params.ResponseGetPhoto, 0)
+	}
 	writeJsonResponse(ctx, http.StatusOK, response)
 }
 

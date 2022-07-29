@@ -8,10 +8,10 @@ import (
 
 type User struct {
 	Model
-	Username     string        `gorm:"not null"`
-	Email        string        `gorm:"not null;uniqueIndex"`
+	Username     string        `gorm:"type:varchar(255);not null"`
+	Email        string        `gorm:"type:varchar(255);not null;uniqueIndex"`
 	Password     string        `gorm:"not null"`
-	Age          int           `gorm:"not null"`
+	Age          int           `gorm:"type:integer;not null"`
 	Photos       []Photo       `gorm:"constraint:OnUpdate:CASCADE,OnDelete:SET NULL;"`
 	SocialMedias []SocialMedia `gorm:"constraint:OnUpdate:CASCADE,OnDelete:SET NULL;"`
 	Comments     []Comment     `gorm:"constraint:OnUpdate:CASCADE,OnDelete:SET NULL;"`
